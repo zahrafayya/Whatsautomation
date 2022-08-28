@@ -1,8 +1,14 @@
 import pywhatkit as pw
+from sys import stdin
 
-text = "ini text yang mau dikirim"
+
+text = "man, tolong join grup wa sch nlc ya :D"
 img = 'D:\image.jpg'
 
-pw.sendwhatmsg_instantly('+62811111111111', text, 10, True, 5)
-pw.sendwhats_image('+628111111111', img, '', 10, True, 10)
-
+for line in stdin:
+    line = '+' + line
+    print('Send to number: ' + line, end='')
+    pw.sendwhatmsg_instantly(line, text, 10, True, 5)
+    print('Text has been sent')
+    pw.sendwhats_image(line, img, '', 10, True, 10)
+    print('Image has been sent')
